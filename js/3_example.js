@@ -1,10 +1,8 @@
 let changeColor = () => {
   let sq = document.getElementById("sqrt");
-  if (sq.className == "red") {
-    sq.classList.replace("red", "green");
-  } else {
-    sq.classList.replace("green", "red");
-  }
+  (sq.className == "red")
+    ? sq.classList.replace("red", "green")
+    : sq.classList.replace("green", "red");
 }
 
 let square = document.createElement("div");
@@ -15,5 +13,6 @@ square.classList.add("red");
 
 square.setAttribute("onMouseOver", "changeColor()");
 square.setAttribute("onMouseOut", "changeColor()");
+square.setAttribute("onClick", "alert('!!!')");
 
 document.body.appendChild(square);
