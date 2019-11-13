@@ -7,35 +7,47 @@ button.innerText = "click";
 document.body.appendChild(button);
 button.style = "margin-top: 20px";
 
-let red = document.createElement("div");
+let lighter = {
+  red: document.createElement("div"),
+  yellow: document.createElement("div"),
+  green: document.createElement("div"),
+};
+for (let key in lighter) {
+  lighter[key].classList.add("circle");
+  if (key == "red") {
+    lighter[key].classList.add("red");
+  }
+}
+
+/*let red = document.createElement("div");
 red.setAttribute("class", "circle");
 red.classList.add("red"); //так правильно задавать классы, а не как в пред.строке?
 let yelow = document.createElement("div");
 yelow.setAttribute("class", "circle");
 let green = document.createElement("div");
-green.setAttribute("class", "circle");
+green.setAttribute("class", "circle");*/
 
 /*let circle = document.querySelectorAll("div");//ищет только по html?если в js задали div, то не найдет?
 console.log(circle);*/
 //как в js задать класс всем div одновременно?
 
-light.appendChild(red);
-light.appendChild(yelow);
-light.appendChild(green);
+light.appendChild(lighter.red);
+light.appendChild(lighter.yellow);
+light.appendChild(lighter.green);
 
 button.setAttribute("onClick", "changeColor()");
 
 function changeColor() {
-  if (red.className == "circle red") {
-    red.classList.remove("red");
-    yelow.classList.add("yelow");
+  if (lighter.red.className == "circle red") {
+    lighter.red.classList.remove("red");
+    lighter.yellow.classList.add("yelow");
   } 
-   else if (yelow.className == "circle yelow") {
-    yelow.classList.remove("yelow");
-    green.classList.add("green");
+   else if (lighter.yellow.className == "circle yelow") {
+    lighter.yellow.classList.remove("yelow");
+    lighter.green.classList.add("green");
   } 
-  else if (green.className == "circle green") {
-    green.classList.remove("green");
-    red.classList.add("red");
+  else if (lighter.green.className == "circle green") {
+    lighter.green.classList.remove("green");
+    lighter.red.classList.add("red");
   }
 }
